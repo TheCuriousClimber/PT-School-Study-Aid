@@ -16,7 +16,31 @@ This is a small, hand-written example of what the SCALE Engine v2 prompt produce
 
 ---
 
-## PART 2 — CORE DECK
+## PART 1 — 5-MINUTE CLINICAL PRIMER (CHEAT SHEET)
+
+### 1. The Clinical Big Picture
+
+The lateral ankle is held by three ligaments that are loaded in sequence, and the sequence is the whole story of this week. The anterior talofibular ligament is taut when the foot is plantar flexed, which is exactly the position the foot is in when someone lands on an inverted foot. So the ATFL tears first and most often. If the force continues, the calcaneofibular ligament, which resists inversion in a neutral ankle, goes next. The posterior talofibular ligament almost never tears without the other two. That order explains the grading system: a Grade I sprain is stretching without tearing, Grade II is a partial tear with some laxity, and Grade III is a complete rupture with gross instability. It also explains the special tests. The anterior drawer pulls the talus forward in slight plantar flexion, so it stresses the ATFL. The talar tilt inverts the calcaneus in neutral, so it stresses the CFL. A positive drawer with a negative tilt tells you where the injury stopped. The Ottawa Ankle Rules exist because the same inversion mechanism can fracture the malleolus or the base of the fifth metatarsal, and a sprain cannot be graded confidently until fracture has been ruled out. The rules are built for sensitivity, so a negative result is what matters.
+
+### 2. Core Differential Matrix
+
+| Condition | Primary Mechanism / MOI | Hallmark Presentation / Cardinal Sign | Differentiating Physical Finding / Key Test |
+|---|---|---|---|
+| Grade I lateral sprain | Inversion with plantar flexion, low force | Minimal swelling, able to bear weight | Anterior drawer and talar tilt negative |
+| Grade II lateral sprain | Same mechanism, moderate force | Moderate swelling and ecchymosis, painful weight bearing | Mild laxity on anterior drawer, firm end point |
+| Grade III lateral sprain | Same mechanism, high force | Marked swelling, usually unable to bear weight | Anterior drawer and talar tilt positive, soft or absent end feel |
+| Lateral malleolus or fifth metatarsal fracture | Same inversion mechanism | Bone tenderness, unable to take four steps | Positive Ottawa Ankle Rules criterion, refer for radiograph |
+
+### 3. Non-Negotiable Safety and Tripwires 🚩
+
+- Bone tenderness at the malleolus or the base of the fifth metatarsal, or inability to take four steps, means radiographs before any grading or treatment, because a fracture treated as a sprain fails the practical and harms the patient.
+- Do not perform the talar tilt in plantar flexion, because that loads the ATFL instead of the CFL and the test no longer answers the question.
+- Do not read a Grade III sprain as Grade II because the patient can limp, because weight bearing with gross instability on testing is still Grade III.
+- Do not treat a negative Ottawa result as proof of no ligament injury, because the rules screen for fracture only.
+
+---
+
+## PART 3 — CORE DECK
 
 | TIER | LO | Front | Back |
 |---|---|---|---|
@@ -40,7 +64,7 @@ Deck stats: 15 cards (🔴 11 / 🟡 3 / 🟢 1), covering 5 of 5 objectives. Fi
 
 ---
 
-## PART 3 — PRACTICAL PREP
+## PART 4 — PRACTICAL PREP
 
 | Skill | LO | Patient position and set-up | Steps | Positive finding or what is measured | What the examiner watches for |
 |---|---|---|---|---|---|
@@ -49,7 +73,7 @@ Deck stats: 15 cards (🔴 11 / 🟡 3 / 🟢 1), covering 5 of 5 objectives. Fi
 
 ---
 
-## PART 4 — EXAM SIMULATION
+## PART 5 — EXAM SIMULATION
 
 | # | LO | Question | Options | Answer | Why |
 |---|---|---|---|---|---|
@@ -60,7 +84,7 @@ Deck stats: 15 cards (🔴 11 / 🟡 3 / 🟢 1), covering 5 of 5 objectives. Fi
 
 ---
 
-## PART 5 — STUDY PLAN AND STATS
+## PART 6 — STUDY PLAN AND STATS
 
 | Day | Block | Minutes | What | Stop rule |
 |---|---|---|---|---|
