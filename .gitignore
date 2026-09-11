@@ -1,0 +1,6 @@
+# Lecture materials stay local
+courses/**/*.pdf
+courses/**/*.pptx
+courses/**/*.ppt
+courses/**/*.docx
+.DS_Store

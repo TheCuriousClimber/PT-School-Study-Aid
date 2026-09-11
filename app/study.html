@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blueprint Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F3F5F8; --surface:#FFFFFF; --surface-2:#EAEEF4; --ink:#171D26; --muted:#5F6875; --line:#D9DEE6;
+  --accent:#2B4BC0; --accent-ink:#FFFFFF; --accent-soft:#E7EBFA;
+  --t1:#C2362F; --t1-soft:#FBE9E7; --t2:#A96F14; --t2-soft:#FBF1DC; --t3:#2C7A4B; --t3-soft:#E3F3E9;
+  --shadow:0 1px 2px rgba(23,29,38,.06), 0 8px 24px rgba(23,29,38,.06);
+  --display:"Bricolage Grotesque","IBM Plex Sans",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1116; --surface:#161B23; --surface-2:#1E252F; --ink:#E6E9EF; --muted:#98A1AF; --line:#2A313C;
+    --accent:#93A6F2; --accent-ink:#0E1116; --accent-soft:#1C2440;
+    --t1:#F0776F; --t1-soft:#3A1F1E; --t2:#E0A83F; --t2-soft:#3A2E14; --t3:#5DBF85; --t3-soft:#173324;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1116; --surface:#161B23; --surface-2:#1E252F; --ink:#E6E9EF; --muted:#98A1AF; --line:#2A313C;
+  --accent:#93A6F2; --accent-ink:#0E1116; --accent-soft:#1C2440;
+  --t1:#F0776F; --t1-soft:#3A1F1E; --t2:#E0A83F; --t2-soft:#3A2E14; --t3:#5DBF85; --t3-soft:#173324;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;padding-block:0 48px;padding-inline:16px;min-height:100vh}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;font-weight:700;letter-spacing:-.01em}
+h1{font-size:1.5rem}
+h2{font-size:1.15rem}
+h3{font-size:1rem}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--accent)}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 10px}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+textarea{width:100%;min-height:220px;font-family:var(--mono);font-size:12.5px;line-height:1.45;resize:vertical}
+.wrap{max-width:1040px;margin:0 auto}
+.topbar{display:flex;align-items:center;gap:18px;padding-block:14px;border-bottom:1px solid var(--line);margin-bottom:24px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand small{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+nav button{background:none;border:1px solid transparent;border-radius:6px;padding:6px 12px;color:var(--muted);font-weight:500}
+nav button[aria-current="page"]{background:var(--surface);border-color:var(--line);color:var(--ink)}
+nav button:hover{color:var(--ink)}
+.timerpill{font-family:var(--mono);font-size:13px;padding:6px 10px;border-radius:6px;background:var(--accent-soft);color:var(--accent);display:none;align-items:center;gap:8px}
+.timerpill.on{display:inline-flex}
+.timerpill .bar{width:70px;height:6px;background:var(--surface);border-radius:3px;overflow:hidden}
+.timerpill .bar i{display:block;height:100%;background:var(--accent);width:0}
+.grid{display:grid;gap:20px}
+.grid.two{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
+@media (max-width:760px){.grid.two{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.panel.lift{box-shadow:var(--shadow)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.plan{display:flex;gap:26px;flex-wrap:wrap;margin:14px 0 18px}
+.plan .stat{min-width:70px}
+.plan .stat b{display:block;font-family:var(--display);font-size:2.2rem;line-height:1;font-weight:700;font-variant-numeric:tabular-nums}
+.plan .stat span{font-size:12.5px;color:var(--muted)}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:9px 16px;font-weight:600}
+.btn:hover{background:var(--surface-2)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.quiet{border-color:transparent;color:var(--muted);font-weight:500}
+.btn.danger{color:var(--t1)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.note{color:var(--muted);font-size:13.5px}
+.chip{font-family:var(--mono);font-size:11.5px;padding:2px 8px;border-radius:4px;background:var(--surface-2);color:var(--muted);white-space:nowrap}
+.chip.t1{background:var(--t1-soft);color:var(--t1)}
+.chip.t2{background:var(--t2-soft);color:var(--t2)}
+.chip.t3{background:var(--t3-soft);color:var(--t3)}
+.chip.lo{background:var(--accent-soft);color:var(--accent)}
+.decklist{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.deckrow{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);text-align:left;width:100%}
+.deckrow.active{border-color:var(--accent);background:var(--accent-soft)}
+.deckrow .nm{font-weight:600}
+.deckrow .meta{font-size:12px;color:var(--muted);font-family:var(--mono)}
+.deckrow .due{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
+.deckrow .due b{color:var(--ink);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+th.num{text-align:right}
+.tablewrap{overflow-x:auto}
+.status{font-family:var(--mono);font-size:11.5px;padding:2px 8px;border-radius:4px;white-space:nowrap}
+.status.ready{background:var(--t3-soft);color:var(--t3)}
+.status.progress{background:var(--accent-soft);color:var(--accent)}
+.status.shaky{background:var(--t2-soft);color:var(--t2)}
+.status.untouched{background:var(--surface-2);color:var(--muted)}
+.status.none{background:var(--t1-soft);color:var(--t1)}
+.covbar{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;min-width:90px;display:flex}
+.covbar i{display:block;height:100%}
+.covbar .s{background:var(--t3)} .covbar .l{background:var(--accent)}
+/* review */
+.review{max-width:680px;margin:0 auto}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:26px 26px 22px;min-height:260px;display:flex;flex-direction:column;gap:18px}
+.card .head{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.card .head .cnt{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.front{font-family:var(--display);font-size:1.35rem;line-height:1.35;font-weight:500}
+.front .opts{font-family:var(--body);font-size:1rem;margin-top:12px;line-height:1.6;font-weight:400}
+.back{border-top:1px dashed var(--line);padding-top:16px;font-size:1.02rem;line-height:1.55}
+.back .why{margin-top:10px;color:var(--muted);font-size:.93rem}
+.grades{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.grades button{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.grades button:hover{background:var(--surface-2)}
+.grades button b{font-weight:600}
+.grades button span{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.grades button.again{border-color:var(--t1);color:var(--t1)}
+.grades button.easy{border-color:var(--t3);color:var(--t3)}
+.reveal{margin-top:14px;width:100%;padding:12px}
+.kbd{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px;text-align:center}
+.done{text-align:center;padding:40px 20px;display:flex;flex-direction:column;gap:12px;align-items:center}
+.done h2{font-size:1.7rem}
+.done .big{font-family:var(--display);font-size:3.4rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.sessionstats{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+.sessionstats div{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.sessionstats b{display:block;font-family:var(--display);font-size:1.5rem;color:var(--ink)}
+.field{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.field input,.field select{color:var(--ink)}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:12px 0}
+.preview{margin-top:12px;padding:12px 14px;border-radius:8px;background:var(--surface-2);font-size:13.5px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--ground);padding:10px 16px;border-radius:8px;font-size:13.5px;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.on{opacity:1}
+.settingslist{display:flex;flex-direction:column;gap:18px}
+.settingslist .item{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.settingslist .item:last-child{border-bottom:0;padding-bottom:0}
+.settingslist .item p{font-size:13px;color:var(--muted);max-width:52ch}
+.settingslist input[type=number]{width:90px;font-family:var(--mono)}
+.switch{width:42px;height:24px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);position:relative;padding:0}
+.switch i{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:var(--muted);transition:transform .15s}
+.switch[aria-checked="true"]{background:var(--accent);border-color:var(--accent)}
+.switch[aria-checked="true"] i{background:var(--accent-ink);transform:translateX(18px)}
+.weekline{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:14px}
+.hint{margin-top:16px;padding:12px 14px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;font-size:13.5px}
+.hint b{font-weight:600}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:520px){.grades{grid-template-columns:repeat(2,1fr)}.card{padding:20px 16px}.front{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="topbar">
+    <div class="brand"><h1>Blueprint Review</h1><small>PT study · spaced repetition</small></div>
+    <div class="timerpill" id="timerpill"><span id="timertext">25:00</span><span class="bar"><i id="timerbar"></i></span></div>
+    <nav id="nav">
+      <button data-view="dash" aria-current="page">Today</button>
+      <button data-view="import">Add deck</button>
+      <button data-view="settings">Settings</button>
+    </nav>
+  </header>
+  <main id="main"></main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ---------- constants & sample ---------- */
+const KEY='blueprint-review.v1';
+const DAY=86400000;
+const SAMPLE_MD=`## PART 0 — BLUEPRINT
+
+| LO # | Learning objective (verbatim) | Level | Covered in | Exam weight | Why |
+|---|---|---|---|---|---|
+| LO 1 | Describe the mechanism of injury and the ligaments involved in a lateral ankle sprain | Explain | Lecture 4, slides 3–9 | High | Repeated on summary slide |
+| LO 2 | Grade ankle ligament sprains (I–III) from clinical findings | Apply | Lecture 4, slides 10–14 | High | Grading table, flagged "know this" |
+| LO 3 | Apply the Ottawa Ankle Rules to decide whether radiographs are indicated | Apply | Lecture 4, slides 15–18 | High | Named clinical prediction rule |
+| LO 4 | Perform and interpret the anterior drawer and talar tilt tests | Perform | Lab handout, pages 2–3 | High | Practical exam skill |
+| LO 5 | Describe the epidemiology of ankle sprains | Recall | Lecture 4, slide 2 | Low | Mentioned once |
+
+## PART 2 — CORE DECK
+
+| TIER | LO | Front | Back |
+|---|---|---|---|
+| 🔴 1 | LO 1 | Which ligament is most often injured in a lateral ankle sprain, and by what mechanism? | <br>• Anterior talofibular ligament (ATFL)<br>• Mechanism: plantar flexion combined with inversion |
+| 🔴 1 | LO 1 | In what order are the lateral ankle ligaments injured as inversion force increases? | <br>• ATFL first<br>• Calcaneofibular ligament (CFL) second<br>• Posterior talofibular ligament (PTFL) last, and rarely |
+| 🟡 2 | LO 1 | Compare the ATFL and CFL on the ankle position in which each is taut. | <br>• ATFL: taut in plantar flexion<br>• CFL: taut in neutral to dorsiflexion |
+| 🔴 1 | LO 2 | What defines a Grade I ankle sprain? | <br>• Microscopic ligament tearing, no macroscopic rupture<br>• Minimal swelling and tenderness<br>• No instability, able to bear weight |
+| 🔴 1 | LO 2 | What defines a Grade II ankle sprain? | <br>• Partial macroscopic tear<br>• Moderate swelling, ecchymosis, and tenderness<br>• Mild to moderate laxity, painful weight bearing |
+| 🔴 1 | LO 2 | What defines a Grade III ankle sprain? | <br>• Complete ligament rupture<br>• Marked swelling and ecchymosis<br>• Gross instability, usually unable to bear weight |
+| 🔴 1 | LO 2 | Compare Grade I versus Grade III sprains on stability testing. | <br>• Grade I: anterior drawer and talar tilt negative<br>• Grade III: both positive with a soft or absent end feel |
+| 🔴 1 | LO 3 | Ottawa Ankle Rules: when is an ankle radiograph series indicated? | <br>• Pain in the malleolar zone AND any of:<br>• Bone tenderness at the posterior edge or tip of the distal 6 cm of the lateral or medial malleolus<br>• Inability to bear weight for four steps both immediately after injury and at examination |
+| 🔴 1 | LO 3 | Ottawa Ankle Rules: when is a foot radiograph series indicated? | <br>• Pain in the midfoot zone AND any of:<br>• Bone tenderness at the base of the fifth metatarsal or the navicular<br>• Inability to bear weight for four steps immediately and at examination |
+| 🔴 1 | LO 3 | What are the sensitivity and specificity of the Ottawa Ankle Rules, and what does that make them useful for? | <br>• Sensitivity about 98%<br>• Specificity about 30% to 40%<br>• A rule-out tool: a negative result makes fracture very unlikely |
+| 🟡 2 | LO 3 | In the Ottawa Ankle Rules, what counts as "able to bear weight"? | <br>• Four steps, transferring weight twice onto each foot<br>• Limping is allowed |
+| 🔴 1 | LO 4 | Anterior drawer test of the ankle: what does it test and what is a positive finding? | <br>• Integrity of the ATFL<br>• Positive: increased anterior translation of the talus compared with the other side, soft end feel, or a dimple sign |
+| 🔴 1 | LO 4 | Talar tilt test: what does it test and what is a positive finding? | <br>• Integrity of the CFL<br>• Positive: increased inversion of the calcaneus compared with the other side, or a soft end feel |
+| 🟡 2 | LO 4 | Compare the anterior drawer and talar tilt tests on ankle position and ligament tested. | <br>• Anterior drawer: 10° to 20° of plantar flexion, tests the ATFL<br>• Talar tilt: neutral, tests the CFL |
+| 🟢 3 | LO 5 | Roughly how common are ankle sprains, and what proportion are lateral? | <br>• About 2 per 1,000 person-years<br>• About 85% are lateral inversion sprains |
+
+## PART 4 — EXAM SIMULATION
+
+| # | LO | Question | Options | Answer | Why |
+|---|---|---|---|---|---|
+| 1 | LO 3 | A 24-year-old rolled her ankle in inversion two hours ago. She walked four steps into the clinic. She has bone tenderness at the tip of the lateral malleolus. Is an ankle radiograph series indicated? | A. No, she can bear weight<br>B. Yes, bone tenderness alone meets the rule<br>C. Only if swelling is present<br>D. Only if she cannot dorsiflex | B | Any one criterion with malleolar zone pain is enough. Weight bearing does not cancel a positive tenderness finding. |
+| 2 | LO 2 | Moderate lateral swelling and ecchymosis, painful but possible weight bearing, mild laxity on anterior drawer with a firm end point. Which grade? | A. Grade I<br>B. Grade II<br>C. Grade III<br>D. Cannot be graded without imaging | B | Partial tear with mild laxity and painful weight bearing defines Grade II. |
+| 3 | LO 1, LO 4 | A patient has a positive anterior drawer but a negative talar tilt. Which ligaments are torn and which are intact? | short answer | ATFL torn, CFL intact | The anterior drawer stresses the ATFL and the talar tilt stresses the CFL. |
+| 4 | LO 3 | Which statement about the Ottawa Ankle Rules is correct? | A. High specificity makes them a good rule-in tool<br>B. High sensitivity makes them a good rule-out tool<br>C. They replace clinical judgement in children under 5<br>D. They apply only within 24 hours of injury | B | Sensitivity near 98% means a negative result nearly excludes fracture. |
+`;
+
+/* ---------- state ---------- */
+const defaults=()=>({settings:{newPerDay:20,sessionMin:25,includeT3:false,avgReview:12,avgNew:40},decks:[],log:[],activeDeck:null,seeded:false});
+let S=load();
+function load(){try{const raw=localStorage.getItem(KEY);if(raw){const s=JSON.parse(raw);return Object.assign(defaults(),s,{settings:Object.assign(defaults().settings,s.settings||{})});}}catch(e){}return defaults();}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){toast('Could not save progress in this browser. Export from Settings to keep it.');}}
+function uid(){return Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4);}
+function todayKey(d=new Date()){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function endOfToday(){const d=new Date();d.setHours(23,59,59,999);return d.getTime();}
+function startOfToday(){const d=new Date();d.setHours(0,0,0,0);return d.getTime();}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function cellHtml(s){
+  let h=esc(String(s||'').trim());
+  h=h.replace(/&lt;br\s*\/?&gt;/gi,'<br>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  h=h.replace(/^(<br>\s*)+/,'');
+  return h;
+}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove('on'),2600);}
+
+/* ---------- markdown parsing ---------- */
+function splitRow(line){
+  let s=line.trim();if(s.startsWith('|'))s=s.slice(1);if(s.endsWith('|'))s=s.slice(0,-1);
+  return s.split(/(?<!\\)\|/).map(c=>c.replace(/\\\|/g,'|').trim());
+}
+function parseMarkdown(text){
+  const lines=text.split(/\r?\n/);const out={cards:[],quiz:[],los:{}};
+  let i=0;
+  while(i<lines.length){
+    if(!lines[i].trim().startsWith('|')){i++;continue;}
+    const block=[];while(i<lines.length&&lines[i].trim().startsWith('|')){block.push(lines[i]);i++;}
+    if(block.length<2)continue;
+    const header=splitRow(block[0]).map(h=>h.toLowerCase());
+    const hasSep=/^\|?\s*:?-{2,}/.test(block[1].trim());
+    const rows=block.slice(hasSep?2:1).map(splitRow);
+    const col=(...names)=>{for(const n of names){const k=header.findIndex(h=>h.includes(n));if(k>=0)return k;}return -1;};
+    const cFront=col('front'),cBack=col('back'),cQ=col('question'),cA=col('answer'),cLO=header.findIndex(h=>/^lo\b|learning objective|^lo #|objective/.test(h)),cTier=col('tier'),cOpt=col('option'),cWhy=col('why','rationale'),cObj=col('learning objective','objective'),cWeight=col('weight'),cLevel=col('level');
+    if(cFront>=0&&cBack>=0){
+      for(const r of rows){const front=r[cFront]||'',back=r[cBack]||'';if(!front||!back)continue;
+        out.cards.push({type:'card',tier:parseTier(cTier>=0?r[cTier]:''),lo:parseLO(cLO>=0?r[cLO]:''),front,back});}
+    }else if(cQ>=0&&cA>=0){
+      for(const r of rows){const q=r[cQ]||'',a=r[cA]||'';if(!q||!a)continue;
+        out.quiz.push({type:'quiz',tier:1,lo:parseLO(cLO>=0?r[cLO]:''),front:q,options:cOpt>=0?(r[cOpt]||''):'',back:a,why:cWhy>=0?(r[cWhy]||''):''});}
+    }else if(cObj>=0&&cLO>=0&&cObj!==cLO){
+      for(const r of rows){const id=parseLO(r[cLO]||'');if(!id)continue;out.los[id]={text:r[cObj]||'',weight:cWeight>=0?(r[cWeight]||''):'',level:cLevel>=0?(r[cLevel]||''):''};}
+    }else if(cObj>=0){
+      for(const r of rows){const id=parseLO(r[0]||'');if(!id)continue;out.los[id]={text:r[cObj]||'',weight:cWeight>=0?(r[cWeight]||''):'',level:cLevel>=0?(r[cLevel]||''):''};}
+    }
+  }
+  return out;
+}
+function parseTier(s){s=String(s||'');if(s.includes('🔴'))return 1;if(s.includes('🟡'))return 2;if(s.includes('🟢'))return 3;const m=s.match(/[123]/);return m?+m[0]:2;}
+function parseLO(s){s=String(s||'').trim();if(!s)return '';const m=s.match(/LO\s*#?\s*(\d+)/i);if(m)return 'LO '+m[1];const n=s.match(/^\s*(\d+)\s*$/);if(n)return 'LO '+n[1];return s.length>18?s.slice(0,18)+'…':s;}
+function makeCard(c){return Object.assign({id:uid(),reps:0,ease:2.5,interval:0,due:0,lapses:0,last:0,seen:0},c);}
+
+/* ---------- scheduling (SM-2 variant with exam cap) ---------- */
+function daysToExam(deck){if(!deck.examDate)return null;const ex=new Date(deck.examDate+'T00:00:00').getTime();return Math.floor((ex-startOfToday())/DAY);}
+function schedule(card,g,deck){
+  const now=Date.now();const n={};
+  if(g===1){n.lapses=card.lapses+(card.reps>0?1:0);n.reps=0;n.interval=0;n.ease=Math.max(1.3,card.ease-0.2);n.due=now+10*60000;}
+  else{
+    let iv,ease=card.ease;
+    if(card.reps===0)iv=g===2?1:g===3?1:3;
+    else if(card.reps===1)iv=g===2?2:g===3?3:5;
+    else iv=Math.round(card.interval*(g===2?1.2:g===4?ease*1.3:ease));
+    if(g===2)ease=Math.max(1.3,ease-0.15);if(g===4)ease=Math.min(3,ease+0.15);
+    iv=Math.max(1,iv);
+    const dte=daysToExam(deck);if(dte!==null&&dte>1)iv=Math.min(iv,dte-1);
+    n.reps=card.reps+1;n.interval=iv;n.ease=ease;n.due=startOfToday()+iv*DAY+4*3600000;n.lapses=card.lapses;
+  }
+  n.last=g;n.seen=card.seen+1;return n;
+}
+function ivLabel(n){if(n.interval===0)return '<10m';return n.interval+'d';}
+function isDue(c){return c.seen>0&&c.due<=endOfToday();}
+function isNew(c){return c.seen===0;}
+function tierOk(c){return S.settings.includeT3||c.tier!==3;}
+function cardStatus(c){if(c.seen===0)return 'untouched';if(c.last===1)return 'shaky';if(c.interval>=4)return 'solid';return 'learning';}
+function todayLog(deckId){const k=todayKey();let e=S.log.find(x=>x.date===k&&x.deckId===deckId);if(!e){e={date:k,deckId,reviews:0,newCount:0,seconds:0,again:0};S.log.push(e);}return e;}
+function newDoneToday(deckId){const k=todayKey();const e=S.log.find(x=>x.date===k&&x.deckId===deckId);return e?e.newCount:0;}
+function plan(deck){
+  const cards=deck.cards.filter(tierOk);
+  const due=cards.filter(isDue).sort((a,b)=>a.tier-b.tier||a.due-b.due);
+  const newLeft=Math.max(0,S.settings.newPerDay-newDoneToday(deck.id));
+  const fresh=cards.filter(isNew).sort((a,b)=>a.tier-b.tier);
+  const nw=fresh.slice(0,newLeft);
+  const est=Math.round((due.length*S.settings.avgReview+nw.length*S.settings.avgNew)/60);
+  return {due,nw,est,freshTotal:fresh.length};
+}
+
+/* ---------- seed ---------- */
+function addDeckFromMarkdown(md,meta){
+  const p=parseMarkdown(md);
+  if(!p.cards.length&&!p.quiz.length)return null;
+  const deck={id:uid(),name:meta.name||'Untitled deck',course:meta.course||'',week:meta.week||'',examDate:meta.examDate||'',demo:!!meta.demo,createdAt:Date.now(),los:p.los,cards:[...p.cards,...p.quiz].map(makeCard)};
+  S.decks.push(deck);S.activeDeck=deck.id;save();return deck;
+}
+if(!S.seeded){S.seeded=true;if(!S.decks.length){addDeckFromMarkdown(SAMPLE_MD,{name:'Ankle sprain (sample)',course:'Demo',week:'Week 4',demo:true});}save();}
+
+/* ---------- views ---------- */
+let view='dash';let session=null;let timerInt=null;
+const main=document.getElementById('main');
+document.getElementById('nav').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(session&&!session.ended){if(!confirm('Leave the session? Progress on graded cards is saved.'))return;endSession(false);}go(b.dataset.view);});
+function go(v){view=v;document.querySelectorAll('#nav button').forEach(b=>b.toggleAttribute('aria-current',false));const cur=document.querySelector(`#nav button[data-view="${v}"]`);if(cur)cur.setAttribute('aria-current','page');render();}
+function activeDeck(){return S.decks.find(d=>d.id===S.activeDeck)||S.decks[0]||null;}
+function render(){if(view==='dash')renderDash();else if(view==='import')renderImport();else if(view==='settings')renderSettings();else if(view==='review')renderReview();window.scrollTo({top:0});}
+
+function weekLine(){
+  const cutoff=Date.now()-7*DAY;let sec=0,sessions=0,reviews=0;
+  for(const e of S.log){const t=new Date(e.date+'T12:00:00').getTime();if(t>=cutoff){sec+=e.seconds;reviews+=e.reviews;if(e.reviews>0)sessions++;}}
+  const h=Math.floor(sec/3600),m=Math.round((sec%3600)/60);
+  return `Last 7 days: ${h?h+'h ':''}${m}m of review across ${sessions} session${sessions===1?'':'s'}, ${reviews} cards graded.`;
+}
+function renderDash(){
+  const d=activeDeck();
+  if(!d){main.innerHTML=`<div class="panel"><h2>No decks yet</h2><p class="note" style="margin-top:8px">Paste a SCALE Engine output under <b>Add deck</b> to start.</p></div>`;return;}
+  const p=plan(d);
+  const dte=daysToExam(d);
+  const tiers=[1,2,3].map(t=>d.cards.filter(c=>c.tier===t&&c.type==='card').length);
+  const quizN=d.cards.filter(c=>c.type==='quiz').length;
+  const canStart=p.due.length+p.nw.length>0;
+  let msg;
+  if(!canStart&&p.freshTotal>0)msg=`Nothing due and today's new-card allowance is used. Tomorrow will bring ${Math.min(S.settings.newPerDay,p.freshTotal)} new cards.`;
+  else if(!canStart)msg=`Nothing due today. Stopping here is the plan working, not slacking.`;
+  else msg=`About ${p.est||1} minute${p.est===1?'':'s'} of work. The session ends at ${S.settings.sessionMin} minutes whether or not the queue is empty.`;
+  main.innerHTML=`
+  <div class="grid two">
+    <section class="panel lift">
+      <div class="eyebrow">Today · ${esc(d.name)}${d.course?' · '+esc(d.course):''}${d.week?' · '+esc(d.week):''}</div>
+      <h2>${canStart?'Your session is ready':'Done for today'}</h2>
+      <div class="plan">
+        <div class="stat"><b>${p.due.length}</b><span>due for review</span></div>
+        <div class="stat"><b>${p.nw.length}</b><span>new to learn</span></div>
+        <div class="stat"><b>${p.est}</b><span>est. minutes</span></div>
+        ${dte!==null?`<div class="stat"><b>${dte}</b><span>days to exam</span></div>`:''}
+      </div>
+      <p class="note">${msg}</p>
+      <div class="row" style="margin-top:16px">
+        <button class="btn primary" id="start" ${canStart?'':'disabled'}>Start ${S.settings.sessionMin}-minute session</button>
+        ${!S.settings.includeT3&&tiers[2]?`<span class="note">Tier 3 is off (${tiers[2]} cards hidden)</span>`:''}
+      </div>
+      <div class="weekline">${weekLine()}</div>
+    </section>
+    <section class="panel">
+      <div class="eyebrow">Decks</div>
+      <div class="decklist">${S.decks.map(x=>{const pp=plan(x);return `<button class="deckrow ${x.id===d.id?'active':''}" data-deck="${x.id}"><span><span class="nm">${esc(x.name)}</span><br><span class="meta">${esc([x.course,x.week].filter(Boolean).join(' · ')||'&nbsp;')} · ${x.cards.length} cards</span></span><span class="due"><b>${pp.due.length}</b> due<br>${pp.nw.length} new</span></button>`;}).join('')}</div>
+      <div class="row" style="margin-top:12px"><button class="btn quiet" id="toimport">+ Add a deck</button></div>
+    </section>
+  </div>
+  <section class="panel" style="margin-top:20px">
+    <div class="eyebrow">Blueprint coverage · ${esc(d.name)}</div>
+    <div class="row" style="justify-content:space-between"><h2>Where you stand on each objective</h2><span class="note">${tiers[0]} 🔴 · ${tiers[1]} 🟡 · ${tiers[2]} 🟢 · ${quizN} practice Q</span></div>
+    <div class="tablewrap" style="margin-top:12px">${coverageTable(d)}</div>
+    ${d.demo?`<div class="hint"><b>This is the sample deck.</b> Ankle sprain values are typical textbook figures, not from your lecture. Add your own deck, then delete this one in Settings.</div>`:''}
+  </section>`;
+  const st=document.getElementById('start');if(st)st.onclick=()=>startSession(d);
+  document.getElementById('toimport').onclick=()=>go('import');
+  main.querySelectorAll('.deckrow').forEach(b=>b.onclick=()=>{S.activeDeck=b.dataset.deck;save();render();});
+}
+function coverageTable(d){
+  const groups={};
+  for(const c of d.cards){const k=c.lo||'No objective';(groups[k]=groups[k]||[]).push(c);}
+  const keys=Object.keys(groups).sort((a,b)=>{const na=parseInt((a.match(/\d+/)||['999'])[0]),nb=parseInt((b.match(/\d+/)||['999'])[0]);return na-nb||a.localeCompare(b);});
+  for(const k of Object.keys(d.los||{}))if(!groups[k])groups[k]=[],keys.push(k);
+  if(!keys.length)return '<p class="note">No cards.</p>';
+  const rows=keys.map(k=>{
+    const cs=groups[k];const n=cs.length;
+    const cnt={untouched:0,learning:0,solid:0,shaky:0};cs.forEach(c=>cnt[cardStatus(c)]++);
+    let status,cls;
+    if(!n){status='no cards';cls='none';}
+    else if(cnt.solid===n){status='ready';cls='ready';}
+    else if(cnt.shaky>0){status='shaky';cls='shaky';}
+    else if(cnt.untouched===n){status='not started';cls='untouched';}
+    else{status='in progress';cls='progress';}
+    const lo=(d.los||{})[k];
+    const t1=cs.filter(c=>c.tier===1).length;
+    return `<tr><td style="white-space:nowrap"><span class="chip lo">${esc(k)}</span></td><td>${lo?esc(lo.text)+(lo.weight?` <span class="chip">${esc(lo.weight)}</span>`:''):'<span class="note">Objective text not in this deck</span>'}</td><td class="num">${n}${t1?` <span class="note">(${t1} 🔴)</span>`:''}</td><td><div class="covbar" title="${cnt.solid} solid, ${cnt.learning+cnt.shaky} learning, ${cnt.untouched} untouched"><i class="s" style="width:${n?cnt.solid/n*100:0}%"></i><i class="l" style="width:${n?(cnt.learning+cnt.shaky)/n*100:0}%"></i></div></td><td><span class="status ${cls}">${status}</span></td></tr>`;
+  }).join('');
+  return `<table><thead><tr><th>LO</th><th>Objective</th><th class="num">Cards</th><th>Solid / learning</th><th>Status</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+/* ---------- session ---------- */
+function startSession(deck){
+  const p=plan(deck);
+  session={deckId:deck.id,queue:[...p.due,...p.nw],relearn:[],shown:0,graded:0,newLearned:0,again:0,startedAt:Date.now(),endsAt:Date.now()+S.settings.sessionMin*60000,ended:false,current:null,revealed:false,cardStart:0,extended:0};
+  timerInt=setInterval(tick,500);
+  document.getElementById('timerpill').classList.add('on');
+  go('review');
+}
+function tick(){
+  if(!session||session.ended)return;
+  const left=Math.max(0,session.endsAt-Date.now());
+  const m=Math.floor(left/60000),s=Math.floor((left%60000)/1000);
+  document.getElementById('timertext').textContent=`${m}:${String(s).padStart(2,'0')}`;
+  const total=S.settings.sessionMin*60000+session.extended;
+  document.getElementById('timerbar').style.width=(100-left/total*100)+'%';
+  if(left<=0){finishSession('time');}
+}
+function nextCard(){
+  const rl=session.relearn.find(r=>session.shown>=r.readyAt);
+  if(rl&&(session.queue.length===0||session.shown-rl.readyAt>=0)){session.relearn=session.relearn.filter(r=>r!==rl);return rl.card;}
+  if(session.queue.length)return session.queue.shift();
+  if(session.relearn.length){const r=session.relearn.shift();return r.card;}
+  return null;
+}
+function renderReview(){
+  if(!session){go('dash');return;}
+  const deck=S.decks.find(d=>d.id===session.deckId);
+  if(session.ended){renderDone(deck);return;}
+  if(!session.current){session.current=nextCard();session.revealed=false;session.cardStart=Date.now();if(!session.current){finishSession('empty');return;}}
+  const c=session.current;
+  const remaining=session.queue.length+session.relearn.length+1;
+  const previews=[1,2,3,4].map(g=>ivLabel(schedule(c,g,deck)));
+  main.innerHTML=`<div class="review">
+    <div class="card">
+      <div class="head"><span class="chip t${c.tier}">${c.type==='quiz'?'PRACTICE Q':'TIER '+c.tier}</span>${c.lo?`<span class="chip lo">${esc(c.lo)}</span>`:''}${c.seen===0?'<span class="chip">new</span>':''}<span class="cnt">${remaining} left</span></div>
+      <div class="front">${cellHtml(c.front)}${c.options&&c.options.toLowerCase()!=='short answer'?`<div class="opts">${cellHtml(c.options)}</div>`:''}</div>
+      ${session.revealed?`<div class="back">${cellHtml(c.back)}${c.why?`<div class="why">${cellHtml(c.why)}</div>`:''}</div>`:''}
+    </div>
+    ${session.revealed?`<div class="grades">
+      <button class="again" data-g="1"><b>Again</b><span>${previews[0]}</span></button>
+      <button data-g="2"><b>Hard</b><span>${previews[1]}</span></button>
+      <button data-g="3"><b>Good</b><span>${previews[2]}</span></button>
+      <button class="easy" data-g="4"><b>Easy</b><span>${previews[3]}</span></button>
+    </div><div class="kbd">1 · 2 · 3 · 4 to grade</div>`
+    :`<button class="btn primary reveal" id="reveal">Show answer</button><div class="kbd">space to reveal</div>`}
+    <div class="row" style="justify-content:center;margin-top:18px"><button class="btn quiet" id="stopnow">End session early</button></div>
+  </div>`;
+  const rv=document.getElementById('reveal');if(rv)rv.onclick=reveal;
+  main.querySelectorAll('.grades button').forEach(b=>b.onclick=()=>grade(+b.dataset.g));
+  document.getElementById('stopnow').onclick=()=>finishSession('manual');
+}
+function reveal(){if(!session||session.revealed)return;session.revealed=true;renderReview();}
+function grade(g){
+  if(!session||!session.revealed)return;
+  const deck=S.decks.find(d=>d.id===session.deckId);const c=session.current;
+  const ms=Date.now()-session.cardStart;const wasNew=c.seen===0;
+  Object.assign(c,schedule(c,g,deck));
+  const sec=Math.min(120,ms/1000);
+  if(wasNew)S.settings.avgNew=Math.round(S.settings.avgNew*0.8+sec*0.2);else S.settings.avgReview=Math.round(S.settings.avgReview*0.8+sec*0.2);
+  const lg=todayLog(deck.id);lg.reviews++;lg.seconds+=Math.round(sec);if(wasNew){lg.newCount++;session.newLearned++;}if(g===1){lg.again++;session.again++;}
+  session.graded++;session.shown++;
+  if(g===1)session.relearn.push({card:c,readyAt:session.shown+4});
+  session.current=null;save();renderReview();
+}
+function finishSession(reason){
+  if(!session)return;
+  session.ended=true;session.reason=reason;clearInterval(timerInt);
+  const rl=session.relearn.length+session.queue.length;
+  session.leftover=rl;
+  document.getElementById('timerpill').classList.remove('on');
+  save();renderReview();
+}
+function endSession(){if(session){clearInterval(timerInt);document.getElementById('timerpill').classList.remove('on');session=null;}}
+function renderDone(deck){
+  const mins=Math.round((Date.now()-session.startedAt)/60000);
+  const acc=session.graded?Math.round((session.graded-session.again)/session.graded*100):0;
+  const title=session.reason==='time'?'Time. You are done for today.':session.reason==='empty'?'Queue empty. Done.':'Session ended.';
+  const line=session.reason==='time'?`${session.leftover} card${session.leftover===1?'':'s'} were left in the queue. They roll into tomorrow. Stopping on time is the skill being practiced here.`:session.reason==='empty'?'Nothing else is due. Close the laptop.':`${session.leftover} left in the queue for next time.`;
+  main.innerHTML=`<div class="review"><div class="panel lift done">
+    <div class="eyebrow">${esc(deck.name)}</div>
+    <h2>${title}</h2>
+    <div class="big">${mins}<span style="font-size:1.2rem;color:var(--muted)"> min</span></div>
+    <div class="sessionstats"><div><b>${session.graded}</b>graded</div><div><b>${session.newLearned}</b>new learned</div><div><b>${acc}%</b>recalled</div></div>
+    <p class="note" style="max-width:46ch">${line}</p>
+    <div class="row" style="justify-content:center;margin-top:8px">
+      <button class="btn primary" id="backdash">Back to today</button>
+      ${session.reason==='time'&&session.leftover?`<button class="btn quiet" id="extend">Add 5 minutes (once)</button>`:''}
+    </div>
+  </div></div>`;
+  document.getElementById('backdash').onclick=()=>{endSession();go('dash');};
+  const ex=document.getElementById('extend');if(ex)ex.onclick=()=>{session.ended=false;session.extended+=5*60000;session.endsAt=Date.now()+5*60000;timerInt=setInterval(tick,500);document.getElementById('timerpill').classList.add('on');renderReview();};
+}
+document.addEventListener('keydown',e=>{
+  if(view!=='review'||!session||session.ended)return;
+  if(e.target.matches('input,textarea,select'))return;
+  if(e.code==='Space'||e.key==='Enter'){e.preventDefault();if(!session.revealed)reveal();return;}
+  if(/^[1-4]$/.test(e.key)&&session.revealed){e.preventDefault();grade(+e.key);}
+});
+
+/* ---------- import ---------- */
+function renderImport(){
+  main.innerHTML=`<div class="grid two">
+    <section class="panel">
+      <div class="eyebrow">Add deck</div>
+      <h2>Paste the SCALE Engine output</h2>
+      <p class="note" style="margin-top:6px">Paste the whole reply. The app picks out the blueprint, the core deck, and the exam simulation tables and ignores everything else. The old three-column format works too.</p>
+      <div class="fields">
+        <label class="field">Deck name<input id="dname" placeholder="Ankle · Week 4"></label>
+        <label class="field">Course<input id="dcourse" placeholder="Musculoskeletal I"></label>
+        <label class="field">Week<input id="dweek" placeholder="Week 4"></label>
+        <label class="field">Exam date (optional)<input id="dexam" type="date"></label>
+      </div>
+      <textarea id="md" placeholder="| TIER | LO | Front | Back |&#10;|---|---|---|---|&#10;| 🔴 1 | LO 2 | ... | <br>• ... |"></textarea>
+      <div id="preview" class="preview" hidden></div>
+      <div class="row" style="margin-top:12px">
+        <button class="btn primary" id="add">Add as new deck</button>
+        ${S.decks.length?`<select id="appendto"><option value="">Append to…</option>${S.decks.map(d=>`<option value="${d.id}">${esc(d.name)}</option>`).join('')}</select><button class="btn" id="append">Append</button>`:''}
+        <button class="btn quiet" id="loadsample">Load sample text</button>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="eyebrow">How a week runs</div>
+      <ol style="padding-left:18px;margin:8px 0 0;display:flex;flex-direction:column;gap:8px;font-size:14px">
+        <li>Upload the lecture files and the professor's learning objectives to the course project and type <b>Process</b>.</li>
+        <li>Paste the reply here. Give the deck the course and week.</li>
+        <li>Do one session a day. It ends at the timer, not when you feel ready.</li>
+        <li>Read the "You are allowed to skip" paragraph when the urge to make more cards shows up.</li>
+        <li>Two days before the exam, do the exam simulation closed-book and check the coverage table for anything still shaky.</li>
+      </ol>
+      <div class="hint" style="margin-top:18px"><b>Tier 3 is off by default.</b> It covers Low-weight objectives. Turn it on in Settings only once every objective reads "ready".</div>
+    </section>
+  </div>`;
+  const ta=document.getElementById('md'),pv=document.getElementById('preview');
+  const doPreview=()=>{const p=parseMarkdown(ta.value);const t=[1,2,3].map(n=>p.cards.filter(c=>c.tier===n).length);const los=new Set([...p.cards,...p.quiz].map(c=>c.lo).filter(Boolean));
+    if(!p.cards.length&&!p.quiz.length){pv.hidden=!ta.value.trim();pv.textContent='No card or question table found yet. The table needs a header row with Front and Back, or Question and Answer.';return;}
+    pv.hidden=false;pv.innerHTML=`Found <b>${p.cards.length}</b> cards (🔴 ${t[0]} · 🟡 ${t[1]} · 🟢 ${t[2]}) and <b>${p.quiz.length}</b> practice questions across <b>${los.size}</b> objectives${Object.keys(p.los).length?`, with objective text for ${Object.keys(p.los).length}`:''}.${p.cards.length>80?' <span style="color:var(--t1)">That is over the 80-card ceiling. Ask the project to “Cut it down” before you study it.</span>':''}`;};
+  ta.addEventListener('input',doPreview);
+  document.getElementById('loadsample').onclick=()=>{ta.value=SAMPLE_MD;doPreview();};
+  document.getElementById('add').onclick=()=>{
+    const d=addDeckFromMarkdown(ta.value,{name:document.getElementById('dname').value.trim()||'Untitled deck',course:document.getElementById('dcourse').value.trim(),week:document.getElementById('dweek').value.trim(),examDate:document.getElementById('dexam').value});
+    if(!d){toast('No cards found in that text.');return;}toast(`Added ${d.cards.length} cards to “${d.name}”.`);go('dash');};
+  const ap=document.getElementById('append');if(ap)ap.onclick=()=>{
+    const id=document.getElementById('appendto').value;const deck=S.decks.find(d=>d.id===id);if(!deck){toast('Pick a deck to append to.');return;}
+    const p=parseMarkdown(ta.value);const n=[...p.cards,...p.quiz];if(!n.length){toast('No cards found in that text.');return;}
+    deck.cards.push(...n.map(makeCard));Object.assign(deck.los=deck.los||{},p.los);S.activeDeck=deck.id;save();toast(`Appended ${n.length} cards to “${deck.name}”.`);go('dash');};
+}
+
+/* ---------- settings ---------- */
+function renderSettings(){
+  const s=S.settings;
+  main.innerHTML=`<div class="grid two">
+    <section class="panel">
+      <div class="eyebrow">Session</div>
+      <div class="settingslist">
+        <div class="item"><div><h3>Session length</h3><p>Minutes before the app stops you. 25 is the default. Longer sessions do not produce better retention, they produce fatigue.</p></div><input id="s-min" type="number" min="5" max="60" value="${s.sessionMin}"></div>
+        <div class="item"><div><h3>New cards per day</h3><p>Per deck. Reviews come first, new cards fill the remaining time. 20 new a day at 45 seconds each is about 15 minutes of learning.</p></div><input id="s-new" type="number" min="0" max="100" value="${s.newPerDay}"></div>
+        <div class="item"><div><h3>Include Tier 3</h3><p>Supporting detail tied to Low-weight objectives. Leave off until Tier 1 and 2 read "ready" in the coverage table.</p></div><button class="switch" id="s-t3" role="switch" aria-checked="${s.includeT3}"><i></i></button></div>
+        <div class="item"><div><h3>Measured pace</h3><p>The app learns how long you take and uses it for the estimate on the Today page.</p></div><span class="note" style="font-family:var(--mono)">${s.avgReview}s review · ${s.avgNew}s new</span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="eyebrow">Decks</div>
+      <div class="settingslist">${S.decks.map(d=>`<div class="item"><div><h3>${esc(d.name)}</h3><p>${d.cards.length} cards${d.examDate?' · exam '+esc(d.examDate):''}</p><div class="row" style="margin-top:8px"><label class="field" style="flex-direction:row;align-items:center;gap:8px">Exam date <input type="date" data-exam="${d.id}" value="${d.examDate||''}"></label></div></div><div class="row"><button class="btn quiet" data-anki="${d.id}">Anki TSV</button><button class="btn quiet danger" data-del="${d.id}">Delete</button></div></div>`).join('')||'<p class="note">No decks.</p>'}</div>
+    </section>
+  </div>
+  <section class="panel" style="margin-top:20px">
+    <div class="eyebrow">Backup</div>
+    <div class="row" style="justify-content:space-between"><h2>Export and import progress</h2><span class="note">Progress lives in this browser only. Export before switching devices.</span></div>
+    <div class="row" style="margin-top:12px"><button class="btn" id="exp">Show export JSON</button><button class="btn" id="imp">Import from the box below</button><a class="btn" id="dl" download="blueprint-review-backup.json" hidden>Download file</a></div>
+    <textarea id="io" style="margin-top:12px;min-height:120px" placeholder="Export puts your data here. Paste a backup here and press Import to restore it."></textarea>
+  </section>`;
+  document.getElementById('s-min').onchange=e=>{s.sessionMin=Math.max(5,Math.min(60,+e.target.value||25));save();};
+  document.getElementById('s-new').onchange=e=>{s.newPerDay=Math.max(0,Math.min(100,+e.target.value||0));save();};
+  const t3=document.getElementById('s-t3');t3.onclick=()=>{s.includeT3=!s.includeT3;t3.setAttribute('aria-checked',s.includeT3);save();};
+  main.querySelectorAll('[data-exam]').forEach(i=>i.onchange=()=>{const d=S.decks.find(x=>x.id===i.dataset.exam);d.examDate=i.value;save();toast('Exam date saved. Intervals will be capped so every card is seen before it.');});
+  main.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{const d=S.decks.find(x=>x.id===b.dataset.del);if(!confirm(`Delete “${d.name}” and its progress?`))return;S.decks=S.decks.filter(x=>x!==d);if(S.activeDeck===d.id)S.activeDeck=S.decks[0]?S.decks[0].id:null;save();renderSettings();});
+  main.querySelectorAll('[data-anki]').forEach(b=>b.onclick=()=>{const d=S.decks.find(x=>x.id===b.dataset.anki);const tsv=d.cards.map(c=>[c.front+(c.options?'<br>'+c.options:''),c.back+(c.why?'<br><i>'+c.why+'</i>':''),`tier${c.tier} ${(c.lo||'').replace(/\s+/g,'')}`].map(x=>x.replace(/\t/g,' ')).join('\t')).join('\n');const io=document.getElementById('io');io.value=tsv;io.select();try{navigator.clipboard.writeText(tsv);}catch(e){}toast('Anki TSV is in the box and on the clipboard. In Anki: Import, fields separated by tab, allow HTML.');});
+  document.getElementById('exp').onclick=()=>{const io=document.getElementById('io');const json=JSON.stringify(S);io.value=json;io.select();try{navigator.clipboard.writeText(json);}catch(e){}const dl=document.getElementById('dl');if(!window.claude){try{dl.href=URL.createObjectURL(new Blob([json],{type:'application/json'}));dl.hidden=false;}catch(e){}}toast('Export is in the box and on the clipboard.');};
+  document.getElementById('imp').onclick=()=>{try{const s=JSON.parse(document.getElementById('io').value);if(!s||!Array.isArray(s.decks))throw 0;if(!confirm('Replace everything in this browser with the pasted backup?'))return;S=Object.assign(defaults(),s);save();toast('Imported.');go('dash');}catch(e){toast('That is not a valid backup.');}};
+}
+
+/* ---------- boot ---------- */
+function start(){go('dash');}
+if(window.claude&&window.claude.hot&&window.claude.hot.ready){window.claude.hot.ready(start);}else{start();}
+</script>
+</body>
+</html>
