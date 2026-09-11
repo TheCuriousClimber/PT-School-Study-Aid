@@ -43,7 +43,7 @@ That is about 2.5 hours per course per week, including practical practice. The o
 - **Part 0, Blueprint.** Each learning objective with its level (recall, explain, apply, perform), where it is covered in the slides, and an exam weight with a one-line reason. Objectives the material barely covers are marked THIN so you can ask the professor instead of memorizing harder.
 - **Part 1, Clinical primer.** A five-minute cheat sheet: the week's clinical story in plain English, a differential matrix contrasting the conditions covered, and three to five safety tripwires. Read it before the first session so you never meet a card cold.
 - **Part 2, Triage map.** Each slide cluster marked LEARN, UNDERSTAND, REFERENCE, or SKIP, with the reason. Ends with a paragraph headed **You are allowed to skip**.
-- **Part 3, Core deck.** The budgeted flashcards, tiered and tagged to objectives. Same `<br>•` cell format as before, so it still pastes into a spreadsheet.
+- **Part 3, Core deck.** The budgeted flashcards, tiered and tagged to objectives, output as a tab-separated block so it pastes straight into Google Sheets with one card per row. Multi-point answers use inline dashes instead of HTML tags.
 - **Part 4, Practical prep.** Set-up, steps, positive finding, and what the examiner watches for, per skill. Practice material, not cards.
 - **Part 5, Exam simulation.** Eight to twelve predicted questions with answers and the trap in each wrong option.
 - **Part 6, Study plan and stats.** Card count, objectives covered, coverage gaps, and the time-boxed plan.
@@ -56,6 +56,7 @@ Other commands: `Primer` for Part 1 alone, `Reference` for the exhaustive tables
 - Due cards come first, sorted by tier. New cards are introduced in tier order, up to 20 per deck per day by default.
 - **Tier 3 is off by default.** Turn it on in Settings only once every objective on the Today page reads "ready".
 - The coverage table on the Today page groups cards by learning objective and shows solid, learning, and untouched for each. Two days before an exam, anything still "shaky" or "not started" is where the remaining time goes.
+- The app imports the tab-separated deck block directly. Decks in the older Markdown-table format still import.
 - Progress is saved in the browser. Export a backup from Settings before switching devices. Anki users can export a tab-separated file per deck.
 
 ## When the fear shows up

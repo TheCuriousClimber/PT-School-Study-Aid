@@ -42,25 +42,24 @@ The lateral ankle is held by three ligaments that are loaded in sequence, and th
 
 ## PART 3 — CORE DECK
 
-| TIER | LO | Front | Back |
-|---|---|---|---|
-| 🔴 1 | LO 1 | Which ligament is most often injured in a lateral ankle sprain, and by what mechanism? | <br>• Anterior talofibular ligament (ATFL)<br>• Mechanism: plantar flexion combined with inversion |
-| 🔴 1 | LO 1 | In what order are the lateral ankle ligaments injured as inversion force increases? | <br>• ATFL first<br>• Calcaneofibular ligament (CFL) second<br>• Posterior talofibular ligament (PTFL) last, and rarely |
-| 🟡 2 | LO 1 | Compare the ATFL and CFL on the ankle position in which each is taut. | <br>• ATFL: taut in plantar flexion<br>• CFL: taut in neutral to dorsiflexion |
-| 🔴 1 | LO 2 | What defines a Grade I ankle sprain? | <br>• Microscopic ligament tearing, no macroscopic rupture<br>• Minimal swelling and tenderness<br>• No instability, able to bear weight |
-| 🔴 1 | LO 2 | What defines a Grade II ankle sprain? | <br>• Partial macroscopic tear<br>• Moderate swelling, ecchymosis, and tenderness<br>• Mild to moderate laxity, painful weight bearing |
-| 🔴 1 | LO 2 | What defines a Grade III ankle sprain? | <br>• Complete ligament rupture<br>• Marked swelling and ecchymosis<br>• Gross instability, usually unable to bear weight |
-| 🔴 1 | LO 2 | Compare Grade I versus Grade III sprains on stability testing. | <br>• Grade I: anterior drawer and talar tilt negative<br>• Grade III: both positive with a soft or absent end feel |
-| 🔴 1 | LO 3 | Ottawa Ankle Rules: when is an ankle radiograph series indicated? | <br>• Pain in the malleolar zone AND any of:<br>• Bone tenderness at the posterior edge or tip of the distal 6 cm of the lateral or medial malleolus<br>• Inability to bear weight for four steps both immediately after injury and at examination |
-| 🔴 1 | LO 3 | Ottawa Ankle Rules: when is a foot radiograph series indicated? | <br>• Pain in the midfoot zone AND any of:<br>• Bone tenderness at the base of the fifth metatarsal or the navicular<br>• Inability to bear weight for four steps immediately and at examination |
-| 🔴 1 | LO 3 | What are the sensitivity and specificity of the Ottawa Ankle Rules, and what does that make them useful for? | <br>• Sensitivity about 98%<br>• Specificity about 30% to 40%<br>• A rule-out tool: a negative result makes fracture very unlikely |
-| 🟡 2 | LO 3 | In the Ottawa Ankle Rules, what counts as "able to bear weight"? | <br>• Four steps, transferring weight twice onto each foot<br>• Limping is allowed |
-| 🔴 1 | LO 4 | Anterior drawer test of the ankle: what does it test and what is a positive finding? | <br>• Integrity of the ATFL<br>• Positive: increased anterior translation of the talus compared with the other side, soft end feel, or a dimple sign |
-| 🔴 1 | LO 4 | Talar tilt test: what does it test and what is a positive finding? | <br>• Integrity of the CFL<br>• Positive: increased inversion of the calcaneus compared with the other side, or a soft end feel |
-| 🟡 2 | LO 4 | Compare the anterior drawer and talar tilt tests on ankle position and ligament tested. | <br>• Anterior drawer: 10° to 20° of plantar flexion, tests the ATFL<br>• Talar tilt: neutral, tests the CFL |
-| 🟢 3 | LO 5 | Roughly how common are ankle sprains, and what proportion are lateral? | <br>• About 2 per 1,000 person-years<br>• About 85% are lateral inversion sprains |
-
-Deck stats: 15 cards (🔴 11 / 🟡 3 / 🟢 1), covering 5 of 5 objectives. First pass at 45 s per card ≈ 11 min.
+```tsv
+TIER	LO	Front	Back
+🔴 1	LO 1	Which ligament is most often injured in a lateral ankle sprain, and by what mechanism?	- Anterior talofibular ligament (ATFL) - Mechanism: plantar flexion combined with inversion
+🔴 1	LO 1	In what order are the lateral ankle ligaments injured as inversion force increases?	- ATFL first - Calcaneofibular ligament (CFL) second - Posterior talofibular ligament (PTFL) last, and rarely
+🟡 2	LO 1	Compare the ATFL and CFL on the ankle position in which each is taut.	- ATFL: taut in plantar flexion - CFL: taut in neutral to dorsiflexion
+🔴 1	LO 2	What defines a Grade I ankle sprain?	- Microscopic ligament tearing, no macroscopic rupture - Minimal swelling and tenderness - No instability, able to bear weight
+🔴 1	LO 2	What defines a Grade II ankle sprain?	- Partial macroscopic tear - Moderate swelling, ecchymosis, and tenderness - Mild to moderate laxity, painful weight bearing
+🔴 1	LO 2	What defines a Grade III ankle sprain?	- Complete ligament rupture - Marked swelling and ecchymosis - Gross instability, usually unable to bear weight
+🔴 1	LO 2	Compare Grade I versus Grade III sprains on stability testing.	- Grade I: anterior drawer and talar tilt negative - Grade III: both positive with a soft or absent end feel
+🔴 1	LO 3	Ottawa Ankle Rules: when is an ankle radiograph series indicated?	- Pain in the malleolar zone AND any of: - Bone tenderness at the posterior edge or tip of the distal 6 cm of the lateral or medial malleolus - Inability to bear weight for four steps both immediately after injury and at examination
+🔴 1	LO 3	Ottawa Ankle Rules: when is a foot radiograph series indicated?	- Pain in the midfoot zone AND any of: - Bone tenderness at the base of the fifth metatarsal or the navicular - Inability to bear weight for four steps immediately and at examination
+🔴 1	LO 3	What are the sensitivity and specificity of the Ottawa Ankle Rules, and what does that make them useful for?	- Sensitivity about 98% - Specificity about 30% to 40% - A rule-out tool: a negative result makes fracture very unlikely
+🟡 2	LO 3	In the Ottawa Ankle Rules, what counts as "able to bear weight"?	- Four steps, transferring weight twice onto each foot - Limping is allowed
+🔴 1	LO 4	Anterior drawer test of the ankle: what does it test and what is a positive finding?	- Integrity of the ATFL - Positive: increased anterior translation of the talus compared with the other side, soft end feel, or a dimple sign
+🔴 1	LO 4	Talar tilt test: what does it test and what is a positive finding?	- Integrity of the CFL - Positive: increased inversion of the calcaneus compared with the other side, or a soft end feel
+🟡 2	LO 4	Compare the anterior drawer and talar tilt tests on ankle position and ligament tested.	- Anterior drawer: 10° to 20° of plantar flexion, tests the ATFL - Talar tilt: neutral, tests the CFL
+🟢 3	LO 5	Roughly how common are ankle sprains, and what proportion are lateral?	- About 2 per 1,000 person-years - About 85% are lateral inversion sprains
+```
 
 ---
 
@@ -68,8 +67,8 @@ Deck stats: 15 cards (🔴 11 / 🟡 3 / 🟢 1), covering 5 of 5 objectives. Fi
 
 | Skill | LO | Patient position and set-up | Steps | Positive finding or what is measured | What the examiner watches for |
 |---|---|---|---|---|---|
-| Anterior drawer (ankle) | LO 4 | Supine or sitting, knee flexed to relax the gastrocnemius, ankle in 10° to 20° plantar flexion | <br>1. Stabilize the distal tibia and fibula with one hand<br>2. Cup the calcaneus with the other hand<br>3. Draw the calcaneus and talus anteriorly<br>4. Compare with the other side | Increased anterior translation, soft end feel, or dimple sign | Knee not flexed, ankle held in dorsiflexion, no stabilization of the tibia, no comparison side |
-| Talar tilt | LO 4 | Supine or sitting, ankle in neutral | <br>1. Stabilize the distal tibia and fibula<br>2. Grasp the calcaneus<br>3. Invert the calcaneus and feel for the end point<br>4. Compare with the other side | Increased inversion or soft end feel compared with the other side | Ankle plantar flexed (this loads the ATFL instead), forcing through pain, no comparison side |
+| Anterior drawer (ankle) | LO 4 | Supine or sitting, knee flexed to relax the gastrocnemius, ankle in 10° to 20° plantar flexion | 1. Stabilize the distal tibia and fibula with one hand 2. Cup the calcaneus with the other hand 3. Draw the calcaneus and talus anteriorly 4. Compare with the other side | Increased anterior translation, soft end feel, or dimple sign | Knee not flexed, ankle held in dorsiflexion, no stabilization of the tibia, no comparison side |
+| Talar tilt | LO 4 | Supine or sitting, ankle in neutral | 1. Stabilize the distal tibia and fibula 2. Grasp the calcaneus 3. Invert the calcaneus and feel for the end point 4. Compare with the other side | Increased inversion or soft end feel compared with the other side | Ankle plantar flexed (this loads the ATFL instead), forcing through pain, no comparison side |
 
 ---
 
@@ -77,14 +76,16 @@ Deck stats: 15 cards (🔴 11 / 🟡 3 / 🟢 1), covering 5 of 5 objectives. Fi
 
 | # | LO | Question | Options | Answer | Why |
 |---|---|---|---|---|---|
-| 1 | LO 3 | A 24-year-old rolled her ankle in inversion two hours ago. She walked four steps into the clinic. She has bone tenderness at the tip of the lateral malleolus. Is an ankle radiograph series indicated? | A. No, she can bear weight<br>B. Yes, bone tenderness alone meets the rule<br>C. Only if swelling is present<br>D. Only if she cannot dorsiflex | B | Any one criterion with malleolar zone pain is enough. Weight bearing does not cancel a positive tenderness finding. |
-| 2 | LO 2 | Moderate lateral swelling and ecchymosis, painful but possible weight bearing, mild laxity on anterior drawer with a firm end point. Which grade? | A. Grade I<br>B. Grade II<br>C. Grade III<br>D. Cannot be graded without imaging | B | Partial tear with mild laxity and painful weight bearing defines Grade II. Grade III has gross instability and usually no weight bearing. |
+| 1 | LO 3 | A 24-year-old rolled her ankle in inversion two hours ago. She walked four steps into the clinic. She has bone tenderness at the tip of the lateral malleolus. Is an ankle radiograph series indicated? | A. No, she can bear weight B. Yes, bone tenderness alone meets the rule C. Only if swelling is present D. Only if she cannot dorsiflex | B | Any one criterion with malleolar zone pain is enough. Weight bearing does not cancel a positive tenderness finding. |
+| 2 | LO 2 | Moderate lateral swelling and ecchymosis, painful but possible weight bearing, mild laxity on anterior drawer with a firm end point. Which grade? | A. Grade I B. Grade II C. Grade III D. Cannot be graded without imaging | B | Partial tear with mild laxity and painful weight bearing defines Grade II. Grade III has gross instability and usually no weight bearing. |
 | 3 | LO 1, LO 4 | A patient has a positive anterior drawer but a negative talar tilt. Which ligaments are torn and which are intact? | short answer | ATFL torn, CFL intact | The anterior drawer stresses the ATFL and the talar tilt stresses the CFL, which is the second ligament in the injury sequence. |
-| 4 | LO 3 | Which statement about the Ottawa Ankle Rules is correct? | A. High specificity makes them a good rule-in tool<br>B. High sensitivity makes them a good rule-out tool<br>C. They replace clinical judgement in children under 5<br>D. They apply only within 24 hours of injury | B | Sensitivity near 98% means a negative result nearly excludes fracture. Specificity is low, so many positives still have no fracture. |
+| 4 | LO 3 | Which statement about the Ottawa Ankle Rules is correct? | A. High specificity makes them a good rule-in tool B. High sensitivity makes them a good rule-out tool C. They replace clinical judgement in children under 5 D. They apply only within 24 hours of injury | B | Sensitivity near 98% means a negative result nearly excludes fracture. Specificity is low, so many positives still have no fracture. |
 
 ---
 
 ## PART 6 — STUDY PLAN AND STATS
+
+Deck stats: 15 cards (🔴 11 / 🟡 3 / 🟢 1), covering 5 of 5 objectives. First pass at 45 s per card ≈ 11 min.
 
 | Day | Block | Minutes | What | Stop rule |
 |---|---|---|---|---|
