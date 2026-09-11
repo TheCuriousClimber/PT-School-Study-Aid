@@ -28,7 +28,7 @@ The exhaustive reference tables still exist. Type `Reference` and you get them, 
 | When | What | Minutes |
 |---|---|---|
 | Day the lectures post | Upload slides plus the professor's learning objectives to the course project. Type `Process`. Paste the reply into the app under Add deck. | 10 |
-| Day 1 | Session. Tier 1 cards, new only. | 25 |
+| Day 1 | Read the Clinical Primer once, then a session. Tier 1 cards, new only. | 5 + 25 |
 | Day 2 | Session. Due cards, then Tier 2. Read the Practical Prep table once. | 25 + 10 |
 | Day 3 | Session. Then practice the skills in Practical Prep on a partner or yourself. | 15 + 20 |
 | Day 4 | Session. Then do the Exam Simulation closed-book. | 15 + 20 |
@@ -38,7 +38,7 @@ That is about 2.5 hours per course per week, including practical practice. The o
 
 ## What the output contains
 
-`Process` produces five parts, in order:
+`Process` produces seven parts, in order:
 
 - **Part 0, Blueprint.** Each learning objective with its level (recall, explain, apply, perform), where it is covered in the slides, and an exam weight with a one-line reason. Objectives the material barely covers are marked THIN so you can ask the professor instead of memorizing harder.
 - **Part 1, Triage map.** Each slide cluster marked LEARN, UNDERSTAND, REFERENCE, or SKIP, with the reason. Ends with a paragraph headed **You are allowed to skip**.
@@ -46,8 +46,9 @@ That is about 2.5 hours per course per week, including practical practice. The o
 - **Part 3, Practical prep.** Set-up, steps, positive finding, and what the examiner watches for, per skill. Practice material, not cards.
 - **Part 4, Exam simulation.** Eight to twelve predicted questions with answers and the trap in each wrong option.
 - **Part 5, Study plan and stats.** Card count, objectives covered, coverage gaps, and the time-boxed plan.
+- **Part 6, Clinical primer.** A five-minute cheat sheet: the week's clinical story in plain English, a differential matrix contrasting the conditions covered, and three to five safety tripwires. Read it before the first session so you never meet a card cold.
 
-Other commands: `Reference` for the exhaustive tables, `Cut it down` to shrink a deck by about 40% with a list of what was cut, `Quiz me` for ten questions one at a time, `Practical` for expanded skill prep, and `Why did you cut X?` to see the reasoning or promote an item into the deck.
+Other commands: `Primer` for Part 6 alone, `Reference` for the exhaustive tables, `Cut it down` to shrink a deck by about 40% with a list of what was cut, `Quiz me` for ten questions one at a time, `Practical` for expanded skill prep, and `Why did you cut X?` to see the reasoning or promote an item into the deck.
 
 ## How the app decides what to show
 
