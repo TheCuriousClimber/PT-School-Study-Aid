@@ -118,6 +118,7 @@ Purpose: the smallest set of cards that fully covers the blueprint.
 - **🔴 Tier 1 — Exam critical.** Directly answers a High-weight objective, or is a named special test, clinical prediction rule, red flag, absolute contraindication, numeric threshold, or grading scale under any objective.
 - **🟡 Tier 2 — High yield.** Answers a Medium-weight objective, or is the mechanism, cardinal presentation, precaution, intervention rationale, or differential that an Explain-level objective asks for.
 - **🟢 Tier 3 — Supporting.** Answers a Low-weight objective. Tier 3 may be no more than 10% of the deck. If the deck is already at the ceiling, Tier 3 is dropped.
+- TIER is strictly limited to three exact values: 🔴 1, 🟡 2, or 🟢 3. Never use row counters, question numbers, or any number higher than 3 (e.g., never output 🔴 8 or 🟡 10).
 
 ### Output format: one TSV code block
 
@@ -140,7 +141,7 @@ The columns above are separated by a real tab character, not spaces.
 - **Single-point answers:** plain text with no quotes and no bullet.
 - **No literal escapes:** never output the literal text `\n`, `<br>`, or any HTML tag to stand for a line break. Use real line breaks inside the quotes. If a point itself contains a double quote, double it (`""`).
 - `TIER` is the emoji plus number, for example `🔴 1`.
-- `LO` is the objective number from Part 0, for example `LO 3`. Every card must have one. A card with no objective does not exist.
+- LO must strictly match an exact LO # defined in the Part 0 Blueprint. Never invent or increment new LO numbers (e.g., LO 6+) that do not appear in Part 0. If content does not match an established LO from Part 0, assign it to the closest valid LO or discard it.
 - `Front` is a question the student can answer in ten seconds or less, on one line. Prefer "Which…", "What value…", "A patient presents with… what is the most likely…", and "Compare X and Y on…". Avoid "List all…" fronts with more than four items; split them or send the list to REFERENCE.
 - `Back` is at most three points and about forty words. Never use semicolons to separate points.
 
@@ -206,4 +207,4 @@ End with one line, plain and direct, stating that finishing the plan is the defi
 - Maintain strict clinical accuracy for every value, test name, sensitivity and specificity figure, and diagnostic criterion. Copy numbers exactly as the source gives them.
 - Never add information that is not in the uploaded material.
 - No conversational introductions, no meta-commentary. Separate parts with a horizontal rule and the part title only.
-- Before posting, run this self-check and fix anything that fails: (1) every card has an LO, (2) the deck is at or under the ceiling and the count is printed, (3) Part 3 is a single TSV code block with exactly four tab-separated fields per record, every multi-point Back field is wrapped in double quotes with one bulleted point per real line, and no HTML tag, literal `\n`, `<br>`, tab, or pipe character appears inside any cell anywhere in the output, (4) no citation markers remain, (5) the "You are allowed to skip" paragraph exists, (6) the study plan totals 2.5 hours or less, (7) the Clinical Big Picture is 150 to 250 words and every tripwire in Part 1 has a matching Tier 1 card.
+- Before posting, run this self-check and fix anything that fails: (1) every card has an LO that strictly exists in the Part 0 Blueprint (zero invented LOs) and every TIER is strictly 🔴 1, 🟡 2, or 🟢 3, (2) the deck is at or under the ceiling and the count is printed, (3) Part 3 is a single TSV code block with exactly four tab-separated fields per record, every multi-point Back field is wrapped in double quotes with one bulleted point per real line, and no HTML tag, literal `\n`, `<br>`, tab, or pipe character appears inside any cell anywhere in the output, (4) no citation markers remain, (5) the "You are allowed to skip" paragraph exists, (6) the study plan totals 2.5 hours or less, (7) the Clinical Big Picture is 150 to 250 words and every tripwire in Part 1 has a matching Tier 1 card.
