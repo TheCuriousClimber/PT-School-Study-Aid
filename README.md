@@ -43,7 +43,7 @@ That is about 2.5 hours per course per week, including practical practice. The o
 - **Part 0, Blueprint.** Each learning objective with its level (recall, explain, apply, perform), where it is covered in the slides, and an exam weight with a one-line reason. Objectives the material barely covers are marked THIN so you can ask the professor instead of memorizing harder.
 - **Part 1, Clinical primer.** A five-minute cheat sheet: the week's clinical story in plain English, a differential matrix contrasting the conditions covered, and three to five safety tripwires. Read it before the first session so you never meet a card cold.
 - **Part 2, Triage map.** Each slide cluster marked LEARN, UNDERSTAND, REFERENCE, or SKIP, with the reason. Ends with a paragraph headed **You are allowed to skip**.
-- **Part 3, Core deck.** The budgeted flashcards, tiered and tagged to objectives, output as a tab-separated block so it pastes straight into Google Sheets with one card per row. Multi-point answers use inline dashes instead of HTML tags.
+- **Part 3, Core deck.** The budgeted flashcards, tiered and tagged to objectives, output as a tab-separated block so it pastes straight into Google Sheets with one card per row. Multi-point answers are quoted with one bullet per line, so Sheets stacks them inside the cell.
 - **Part 4, Practical prep.** Set-up, steps, positive finding, and what the examiner watches for, per skill. Practice material, not cards.
 - **Part 5, Exam simulation.** Eight to twelve predicted questions with answers and the trap in each wrong option.
 - **Part 6, Study plan and stats.** Card count, objectives covered, coverage gaps, and the time-boxed plan.

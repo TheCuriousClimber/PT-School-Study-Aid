@@ -44,21 +44,43 @@ The lateral ankle is held by three ligaments that are loaded in sequence, and th
 
 ```tsv
 TIER	LO	Front	Back
-🔴 1	LO 1	Which ligament is most often injured in a lateral ankle sprain, and by what mechanism?	- Anterior talofibular ligament (ATFL) - Mechanism: plantar flexion combined with inversion
-🔴 1	LO 1	In what order are the lateral ankle ligaments injured as inversion force increases?	- ATFL first - Calcaneofibular ligament (CFL) second - Posterior talofibular ligament (PTFL) last, and rarely
-🟡 2	LO 1	Compare the ATFL and CFL on the ankle position in which each is taut.	- ATFL: taut in plantar flexion - CFL: taut in neutral to dorsiflexion
-🔴 1	LO 2	What defines a Grade I ankle sprain?	- Microscopic ligament tearing, no macroscopic rupture - Minimal swelling and tenderness - No instability, able to bear weight
-🔴 1	LO 2	What defines a Grade II ankle sprain?	- Partial macroscopic tear - Moderate swelling, ecchymosis, and tenderness - Mild to moderate laxity, painful weight bearing
-🔴 1	LO 2	What defines a Grade III ankle sprain?	- Complete ligament rupture - Marked swelling and ecchymosis - Gross instability, usually unable to bear weight
-🔴 1	LO 2	Compare Grade I versus Grade III sprains on stability testing.	- Grade I: anterior drawer and talar tilt negative - Grade III: both positive with a soft or absent end feel
-🔴 1	LO 3	Ottawa Ankle Rules: when is an ankle radiograph series indicated?	- Pain in the malleolar zone AND any of: - Bone tenderness at the posterior edge or tip of the distal 6 cm of the lateral or medial malleolus - Inability to bear weight for four steps both immediately after injury and at examination
-🔴 1	LO 3	Ottawa Ankle Rules: when is a foot radiograph series indicated?	- Pain in the midfoot zone AND any of: - Bone tenderness at the base of the fifth metatarsal or the navicular - Inability to bear weight for four steps immediately and at examination
-🔴 1	LO 3	What are the sensitivity and specificity of the Ottawa Ankle Rules, and what does that make them useful for?	- Sensitivity about 98% - Specificity about 30% to 40% - A rule-out tool: a negative result makes fracture very unlikely
-🟡 2	LO 3	In the Ottawa Ankle Rules, what counts as "able to bear weight"?	- Four steps, transferring weight twice onto each foot - Limping is allowed
-🔴 1	LO 4	Anterior drawer test of the ankle: what does it test and what is a positive finding?	- Integrity of the ATFL - Positive: increased anterior translation of the talus compared with the other side, soft end feel, or a dimple sign
-🔴 1	LO 4	Talar tilt test: what does it test and what is a positive finding?	- Integrity of the CFL - Positive: increased inversion of the calcaneus compared with the other side, or a soft end feel
-🟡 2	LO 4	Compare the anterior drawer and talar tilt tests on ankle position and ligament tested.	- Anterior drawer: 10° to 20° of plantar flexion, tests the ATFL - Talar tilt: neutral, tests the CFL
-🟢 3	LO 5	Roughly how common are ankle sprains, and what proportion are lateral?	- About 2 per 1,000 person-years - About 85% are lateral inversion sprains
+🔴 1	LO 1	Which ligament is most often injured in a lateral ankle sprain, and by what mechanism?	"• Anterior talofibular ligament (ATFL)
+• Mechanism: plantar flexion combined with inversion"
+🔴 1	LO 1	In what order are the lateral ankle ligaments injured as inversion force increases?	"• ATFL first
+• Calcaneofibular ligament (CFL) second
+• Posterior talofibular ligament (PTFL) last, and rarely"
+🟡 2	LO 1	Compare the ATFL and CFL on the ankle position in which each is taut.	"• ATFL: taut in plantar flexion
+• CFL: taut in neutral to dorsiflexion"
+🔴 1	LO 2	What defines a Grade I ankle sprain?	"• Microscopic ligament tearing, no macroscopic rupture
+• Minimal swelling and tenderness
+• No instability, able to bear weight"
+🔴 1	LO 2	What defines a Grade II ankle sprain?	"• Partial macroscopic tear
+• Moderate swelling, ecchymosis, and tenderness
+• Mild to moderate laxity, painful weight bearing"
+🔴 1	LO 2	What defines a Grade III ankle sprain?	"• Complete ligament rupture
+• Marked swelling and ecchymosis
+• Gross instability, usually unable to bear weight"
+🔴 1	LO 2	Compare Grade I versus Grade III sprains on stability testing.	"• Grade I: anterior drawer and talar tilt negative
+• Grade III: both positive with a soft or absent end feel"
+🔴 1	LO 3	Ottawa Ankle Rules: when is an ankle radiograph series indicated?	"• Pain in the malleolar zone AND any of:
+• Bone tenderness at the posterior edge or tip of the distal 6 cm of the lateral or medial malleolus
+• Inability to bear weight for four steps both immediately after injury and at examination"
+🔴 1	LO 3	Ottawa Ankle Rules: when is a foot radiograph series indicated?	"• Pain in the midfoot zone AND any of:
+• Bone tenderness at the base of the fifth metatarsal or the navicular
+• Inability to bear weight for four steps immediately and at examination"
+🔴 1	LO 3	What are the sensitivity and specificity of the Ottawa Ankle Rules, and what does that make them useful for?	"• Sensitivity about 98%
+• Specificity about 30% to 40%
+• A rule-out tool: a negative result makes fracture very unlikely"
+🟡 2	LO 3	In the Ottawa Ankle Rules, what counts as "able to bear weight"?	"• Four steps, transferring weight twice onto each foot
+• Limping is allowed"
+🔴 1	LO 4	Anterior drawer test of the ankle: what does it test and what is a positive finding?	"• Integrity of the ATFL
+• Positive: increased anterior translation of the talus compared with the other side, soft end feel, or a dimple sign"
+🔴 1	LO 4	Talar tilt test: what does it test and what is a positive finding?	"• Integrity of the CFL
+• Positive: increased inversion of the calcaneus compared with the other side, or a soft end feel"
+🟡 2	LO 4	Compare the anterior drawer and talar tilt tests on ankle position and ligament tested.	"• Anterior drawer: 10° to 20° of plantar flexion, tests the ATFL
+• Talar tilt: neutral, tests the CFL"
+🟢 3	LO 5	Roughly how common are ankle sprains, and what proportion are lateral?	"• About 2 per 1,000 person-years
+• About 85% are lateral inversion sprains"
 ```
 
 ---

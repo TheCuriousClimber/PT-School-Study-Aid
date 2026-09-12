@@ -121,23 +121,28 @@ Purpose: the smallest set of cards that fully covers the blueprint.
 
 ### Output format: one TSV code block
 
-Output the deck as tab-separated values inside a single fenced code block, so it can be pasted directly into Google Sheets and land one card per row and one field per column. Nothing else goes inside that block, and the deck appears nowhere else.
+Output the deck as tab-separated values inside a single fenced code block, so it can be pasted directly into Google Sheets and land one card per row and one field per column, with multi-point answers stacked as bullets inside the cell. Nothing else goes inside that block, and the deck appears nowhere else.
 
 ```tsv
 TIER	LO	Front	Back
-🔴 1	LO 3	Ottawa Ankle Rules: when is an ankle radiograph series indicated?	- Pain in the malleolar zone AND any of the following - Bone tenderness at the posterior edge or tip of the distal 6 cm of either malleolus - Inability to bear weight for four steps immediately and at examination
-🟡 2	LO 1	Which ligament is taut in plantar flexion, the ATFL or the CFL?	The ATFL. The CFL is taut in neutral to dorsiflexion.
+🔴 1	LO 2	What are the four factor categories that cause post-stroke shoulder pain?	"• Postural (weak or flaccid arm)
+• Spasticity (mainly subscapularis and pecs)
+• Weakness or muscle imbalance (loss of scapular rotation, weak supraspinatus)
+• Inflammatory (bursitis, tendonitis, adhesive capsulitis)"
+🔴 1	LO 2	What causes subluxation of the hemiplegic shoulder?	The weight of the arm and gravity in sitting/standing pull the humeral head out of the glenoid, due to loss or imbalance of muscle tone
 ```
 
 The columns above are separated by a real tab character, not spaces.
 
 - The first line is the header: `TIER`, `LO`, `Front`, `Back`.
-- Exactly one card per line and exactly four fields per line, separated by a single tab. No blank lines inside the block. No tab characters, pipe characters, or HTML tags inside a field. Do not wrap fields in quotation marks.
+- One card per record and exactly four fields per record, separated by a single tab. No blank lines inside the block. No tab characters, pipe characters, or HTML tags inside a field.
+- **Multi-point answers:** when the Back field has more than one item, wrap the entire Back field in standard double quotes. Inside the quotes, put each point on a real new line, beginning with a bullet character and a space. Quoting is what lets Google Sheets keep the line breaks inside one cell. The closing quote is the last character of the record.
+- **Single-point answers:** plain text with no quotes and no bullet.
+- **No literal escapes:** never output the literal text `\n`, `<br>`, or any HTML tag to stand for a line break. Use real line breaks inside the quotes. If a point itself contains a double quote, double it (`""`).
 - `TIER` is the emoji plus number, for example `🔴 1`.
 - `LO` is the objective number from Part 0, for example `LO 3`. Every card must have one. A card with no objective does not exist.
-- `Front` is a question the student can answer in ten seconds or less. Prefer "Which…", "What value…", "A patient presents with… what is the most likely…", and "Compare X and Y on…". Avoid "List all…" fronts with more than four items; split them or send the list to REFERENCE.
-- `Back` is at most three points and about forty words. When the answer has more than one point, write them inline, each introduced by a space, a dash, and a space, and start the field with a dash: `- Point 1 - Point 2 - Point 3`. A single-point answer is plain text with no dash. Never use semicolons to separate points.
-- Write ranges and pairs with the word "to" (`10° to 20°`, `grades I to III`), never a bare dash, so a dash only ever marks a list item.
+- `Front` is a question the student can answer in ten seconds or less, on one line. Prefer "Which…", "What value…", "A patient presents with… what is the most likely…", and "Compare X and Y on…". Avoid "List all…" fronts with more than four items; split them or send the list to REFERENCE.
+- `Back` is at most three points and about forty words. Never use semicolons to separate points.
 
 ### Card rules
 
@@ -195,10 +200,10 @@ End with one line, plain and direct, stating that finishing the plan is the defi
 
 - Part 3 is the only part that uses a TSV code block. Every other table in the output is a standard Markdown pipe table: a header row, a separator row of dashes, then one row per line, with a blank line before the table and a blank line after it. Never put a table inside a code block, and never run a table directly into the paragraph above or below it, or it collapses into raw text.
 - No HTML anywhere in the output. No `<br>`, no `<b>`, no `<i>`. Multi-item cells use inline separators as each part specifies: a space, a dash, and a space for lists, `1. 2. 3.` for steps, `A. B. C. D.` for answer options.
-- Every table cell stays on one line. No pipe characters inside a cell.
+- Every Markdown table cell stays on one line. The only multi-line cells in the output are the quoted Back fields in Part 3. No pipe characters inside a cell.
 
 - Do not summarize a card into vagueness, and do not inflate the deck. Precision, not volume.
 - Maintain strict clinical accuracy for every value, test name, sensitivity and specificity figure, and diagnostic criterion. Copy numbers exactly as the source gives them.
 - Never add information that is not in the uploaded material.
 - No conversational introductions, no meta-commentary. Separate parts with a horizontal rule and the part title only.
-- Before posting, run this self-check and fix anything that fails: (1) every card has an LO, (2) the deck is at or under the ceiling and the count is printed, (3) Part 3 is a single TSV code block with exactly four tab-separated fields on every line, and no HTML tag, `<br>`, tab, or pipe character appears inside any cell anywhere in the output, (4) no citation markers remain, (5) the "You are allowed to skip" paragraph exists, (6) the study plan totals 2.5 hours or less, (7) the Clinical Big Picture is 150 to 250 words and every tripwire in Part 1 has a matching Tier 1 card.
+- Before posting, run this self-check and fix anything that fails: (1) every card has an LO, (2) the deck is at or under the ceiling and the count is printed, (3) Part 3 is a single TSV code block with exactly four tab-separated fields per record, every multi-point Back field is wrapped in double quotes with one bulleted point per real line, and no HTML tag, literal `\n`, `<br>`, tab, or pipe character appears inside any cell anywhere in the output, (4) no citation markers remain, (5) the "You are allowed to skip" paragraph exists, (6) the study plan totals 2.5 hours or less, (7) the Clinical Big Picture is 150 to 250 words and every tripwire in Part 1 has a matching Tier 1 card.
