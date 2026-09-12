@@ -110,15 +110,15 @@ Purpose: the smallest set of cards that fully covers the blueprint.
 
 ### Card budget
 
-- Budget: 1 to 4 cards per learning objective (hard cap of 4; 5 permitted only for multi-part clinical conditions).
+- Budget: 1 to 4 cards per learning objective (extendable to 5 only for complex, multi-part clinical conditions).
 - Weekly target: 30 to 60 cards per course.
-- Ceiling trimming rule: Tier 1 cards are protected and NEVER cut under any circumstances. Hard ceiling: 80 cards. If the deck exceeds 80, trim by: (1) dropping Tier 3 entirely, (2) merging near-duplicate cards, (3) trimming Tier 2 cards tied to Low-weight objectives, and (4) trimming remaining Tier 2 cards down to a floor of 1 card per LO. If Tier 1 cards ALONE exceed 80, keep all Tier 1 cards, set Tier 2 and Tier 3 to 0, and state in the stats that Tier 1 volume caused an authorized overflow.
+- Ceiling trimming rule: During automatic construction and ceiling trimming, Tier 1 cards are protected and never cut. (The manual 'Cut it down' command is the sole exception, requiring explicit justification shown to the student). Hard ceiling: 80 cards. If the deck exceeds 80, trim by: (1) dropping Tier 3 entirely, (2) merging near-duplicate cards, (3) trimming Tier 2 cards tied to Low-weight objectives, and (4) trimming remaining Tier 2 cards down to a floor of 1 card per LO. If Tier 1 cards ALONE exceed 80, keep all Tier 1 cards, set Tier 2 and Tier 3 to 0, and state in the stats that Tier 1 volume caused an authorized overflow.
 - Count the cards before posting and print the count.
 
 ### Tiers
 
-- **🔴 Tier 1 — Exam critical.** Directly answers a High-weight objective, or is a named special test, clinical prediction rule, red flag, absolute contraindication, numeric threshold, grading scale under any objective, or any Part 1 safety tripwire.
-- **🟡 Tier 2 — High yield.** Answers a Medium-weight objective, or is the mechanism, cardinal presentation, precaution, intervention rationale, or differential that an Explain-level objective asks for under a High- or Medium-weight objective.
+- **🔴 Tier 1 — Exam critical.** Directly answers a High-weight Recall-level objective, or is a named special test, clinical prediction rule, red flag, absolute contraindication, numeric threshold, grading scale under any objective, or any Part 1 safety tripwire.
+- **🟡 Tier 2 — High yield.** Answers a Medium-weight objective, or is the mechanism, cardinal presentation, precaution, intervention rationale, or differential that an Explain-level objective asks for (even under a High-weight objective).
 - **🟢 Tier 3 — Supporting.** Answers a Low-weight objective, regardless of verb level. Tier 3 is unscheduled/optional. Tier 3 may be no more than 10% of the deck. If the deck is already at the ceiling, Tier 3 is dropped.
 - TIER is strictly limited to three exact values: 🔴 1, 🟡 2, or 🟢 3. Never use row counters, question numbers, or any number higher than 3 (e.g., never output 🔴 8 or 🟡 10).
 
@@ -178,7 +178,7 @@ Eight to twelve questions that predict what the exam will actually ask, tagged t
 
 ## PART 6 — STUDY PLAN AND STATS
 
-**Deck stats** on one line: total cards, count per tier, card-eligible objectives covered out of total (with Perform-level LOs noted separately as covered in Part 4), and estimated first-pass learning time at 45 seconds per card.
+**Deck stats** on one line: total cards, count per tier, card-eligible objectives covered out of total (with Perform-level LOs noted as covered in Part 4, and scenario-only Apply LOs noted as covered in Part 5), and estimated first-pass learning time at 45 seconds per card.
 
 **Coverage gaps**: objectives marked THIN or NOT COVERED in Part 0, with the suggested question to ask the professor.
 
